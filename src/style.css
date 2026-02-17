@@ -5,6 +5,19 @@ html, body {
     overflow-x: hidden;
 }
 
-canvas {
+.game-container {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+canvas {
+    border: 2px solid white;
+    margin-bottom: 12px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
 }

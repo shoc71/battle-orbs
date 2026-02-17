@@ -6,7 +6,7 @@ const context = canvas.getContext("2d");
 
 function resizeCanvas() {
     canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight - 50;
+    canvas.height = Math.min(600, window.innerHeight * 0.8);
 }
 
 resizeCanvas(); 
@@ -57,5 +57,6 @@ function animate() {
     requestAnimationFrame(animate)
 }
 
-window.addEventListener("resize", animate);
+window.addEventListener("resize", resizeCanvas());
+
 animate();

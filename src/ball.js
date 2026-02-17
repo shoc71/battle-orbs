@@ -11,10 +11,13 @@ export class Ball {
         this.velocityX = init.velocityX;
         this.velocityY = init.velocityY;
 
+        this.health = init.health;
+        this.maxHealth = init.health;
+
         this.ballColor = init.ballColor;
         this.numberColor = init.numberColor;
         this.numberFont = init.numberFont;
-        this.health = init.health;
+        
     }
 
     update() {
@@ -24,17 +27,23 @@ export class Ball {
         this.checkBorderCollision();
     }
 
+    takeDamage(amount) {
+        this.health -= amount;
+    }
+
     checkBorderCollision() {
         if (this.ballX + this.radius > this.boundary.width ||
             this.ballX - this.radius < 0
         ) {
             this.velocityX *= -1;
+            this.takeDamage(3);
         }
 
         if (this.ballY + this.radius > this.boundary.height ||
             this.ballY - this.radius < 0
         ) {
             this.velocityY *= -1;
+            this.takeDamage(5);
         }
     }
 
